@@ -104,3 +104,26 @@ logistics-data-analytics-project/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+
+
+## Project Status
+
+### Week 1 – Strategic Planning and Data Exploration
+Completed
+
+### Week 2 – Data Collection, Cleaning and Preprocessing
+Completed
+
+Week 2 included:
+- Data quality assessment
+- Missing value analysis
+- Duplicate detection
+- Data type conversion
+- Invalid value detection
+- IQR-based outlier analysis
+- Numerical feature normalization
+- Clean dataset preparation
+
+### Next Phase
+
+Week 3 will focus on exploratory data analysis, relationships between logistics variables, and deeper KPI analysis.

@@ -1,0 +1,34 @@
+WEEK 2 PROJECT REPORT
+
+Data Collection, Cleaning, and
+Preprocessing for Logistics Analysis
+
+1. Introduction
+2. Data Collection Simulation and Dataset Characteristics
+3. Data Cleaning Methodology
+4. Missing-Value Analysis
+5. Duplicate Analysis
+6. Data-Type and Date Preprocessing
+7. Invalid-Value Validation
+8. Outlier Detection Using IQR
+9. Outlier Visualization
+10. Numerical Normalization
+11. Final Preprocessing Results
+12. Saving Processed Data
+13. Why Data Quality Matters
+14. Reflection
+15. Conclusion
+
+124 missing termination_date values
+0 negative distance
+0 negative duration
+0 negative fuel
+0 invalid MPG
+0 negative idle time
+
+IQR outliers:
+0 for all five tested variables
+
+StandardScaler:
+Mean ≈ 0
+Standard deviation = 1
