@@ -1,0 +1,140 @@
+WEEK 3 PROJECT REPORT
+Advanced Data Analysis and Visualization in Logistics
+Data-Driven Logistics and Fleet Performance Optimization
+Week 3 – Exploratory Data Analysis, Visualization, and Insights
+ 
+1. Introduction
+Week 3 extends the logistics analytics project from data preparation into exploratory data analysis (EDA), visualization, and business interpretation. The objective is to understand operational patterns in trip performance, delivery reliability, detention, fuel efficiency, driver performance, truck performance, and monthly activity. Python was used to calculate descriptive statistics, examine correlations, create visualizations, and identify areas that may require operational attention.
+2. Dataset and Analytical Scope
+The project uses the relational logistics database introduced in Weeks 1 and 2. The main Week 3 analytical tables are Trips, Delivery Events, Loads, Drivers, Trucks, Routes, Fuel Purchases, and Maintenance Records. The Trips table contains 85,410 records, while Delivery Events contains 170,820 records. The analysis focuses primarily on five trip-performance variables: actual distance, actual duration, fuel consumed, average MPG, and idle time.
+The Week 2 preprocessing stage established the analysis-ready foundation by validating numerical measurements, converting date fields, reviewing missing values, and confirming the absence of IQR outliers in the selected trip variables.
+3. Exploratory Data Analysis Methodology
+•	Descriptive statistics were calculated using mean, median, standard deviation, minimum, and maximum.
+•	Histograms and distribution plots were used to understand the spread of operational variables.
+•	Scatter plots were used to examine relationships between distance, duration, fuel consumption, and idle time.
+•	A correlation matrix was used to quantify linear relationships among numerical trip-performance variables.
+•	Delivery status was analyzed using on-time and late event counts and percentages.
+•	Location-level analysis was performed for delivery volume and average detention.
+•	Monthly aggregation was used to identify trip-volume and fuel-efficiency trends.
+•	Driver and truck performance summaries were created to identify higher- and lower-MPG groups.
+4. Descriptive Statistics
+Variable	Mean	Median	Std Dev	Min	Max
+Distance (miles)	1430.27	1297.5	801.93	90.0	3391.0
+Duration (hours)	25.01	23.0	14.19	1.4	67.8
+Fuel (gallons)	221.83	204.5	126.56	12.0	611.9
+Average MPG	6.5	6.5	0.58	5.5	7.5
+Idle time (hours)	7.01	7.0	2.88	2.0	12.0
+The average trip distance is 1,430.27 miles and the median is 1,297.50 miles. Average trip duration is 25.01 hours compared with a median of 23 hours. Average fuel consumption is 221.83 gallons per trip. Average MPG is 6.50 and its mean and median are identical, suggesting a stable central tendency. Average idle time is 7.01 hours per trip, making idle behavior a relevant operational metric for further investigation.
+5. Correlation Analysis
+Relationship	Correlation
+Distance ↔ Duration	0.99
+Distance ↔ Fuel	0.98
+Duration ↔ Fuel	0.97
+Fuel ↔ MPG	-0.16
+Distance ↔ MPG	-0.01
+Duration ↔ MPG	-0.01
+Distance ↔ Idle	0.01
+Duration ↔ Idle	0.01
+MPG ↔ Idle	-0.00
+The strongest observed relationship is between distance and duration (r = 0.99), indicating an extremely strong positive linear association. Distance and fuel consumption also have a very strong positive relationship (r = 0.98), while duration and fuel consumption have a correlation of 0.97. These relationships indicate that trip scale is a major driver of both travel time and fuel consumption.
+Average MPG shows almost no linear relationship with distance (r = -0.01) or duration (r = -0.01). Idle time also has almost no linear correlation with distance or duration (both approximately 0.01). Therefore, correlation alone does not support the conclusion that longer trips necessarily create more idle time.
+6. Delivery Performance
+Out of 170,820 delivery events, 95,095 were on time and 75,725 were late. This corresponds to an on-time rate of 55.67% and a late-event rate of 44.33%. The result indicates a substantial opportunity to improve service reliability.
+ 
+7. Geographic Delivery Volume
+Texas recorded the largest number of delivery events among the top ten states with 17,542 events, followed by Missouri with 14,562 and Pennsylvania with 12,031. High-volume states should be considered carefully when prioritizing operational resources because they combine high activity with potentially larger aggregate exposure to delays.
+ 
+8. Detention Analysis
+Indiana had the highest average detention time among the ten states shown, at 106.23 minutes, followed by California at 105.32 minutes and Colorado at 98.80 minutes. The differences suggest that detention should be investigated at the facility and location level. However, state-level averages alone do not establish the root cause; facility, customer, route, time-of-day, and shipment characteristics should be examined in a later analysis.
+ 
+9. Trip Status
+All 85,410 records in the Trips table have a status of Completed. This indicates that the current trip table does not provide meaningful variation in trip-status categories for comparative visualization. Future analysis should therefore focus on other performance measures such as duration, detention, on-time delivery, fuel efficiency, and route characteristics.
+10. Monthly Trip Volume
+Monthly trip volume remains relatively stable over the 2022–2024 period. The lowest observed month is February 2023 with 2,136 trips, while the highest is August 2022 with 2,496 trips. The relatively narrow range suggests a stable baseline of monthly operational activity rather than a dramatic long-term upward or downward trend.
+ 
+11. Monthly Fuel Efficiency
+Monthly average MPG remains highly stable, ranging from approximately 6.47 to 6.53 MPG. The highest values occur around March 2024 and September 2024 at 6.53 MPG, while April 2023 records the lowest value at 6.47 MPG. The small variation indicates that fleet-level fuel efficiency is relatively consistent across the analyzed period.
+ 
+12. Driver Performance
+The top ten drivers by average MPG have values between 6.54 and 6.56 MPG. The highest values are 6.56 MPG for DRV00105 and DRV00109. The narrow range among the top performers indicates that driver-level MPG differences are relatively small at the top of the ranking. Driver evaluation should therefore consider additional metrics such as on-time performance, idle time, safety, trip volume, and route mix rather than MPG alone.
+ 
+13. Truck Performance
+The ten lowest-MPG trucks have average MPG values between 6.45 and 6.48. TRK00072 has the lowest observed average MPG at 6.45, followed by TRK00092 at 6.46. Because the differences are small, these trucks should be treated as candidates for further investigation rather than automatically classified as underperforming assets. Maintenance history, vehicle age, load characteristics, route mix, and operating conditions should be incorporated before making replacement or repair decisions.
+ 
+14. Key Analytical Insights
+•	The on-time delivery rate is 55.67%, meaning 44.33% of delivery events are classified as late and represent the clearest service-reliability improvement opportunity.
+•	Distance, duration, and fuel consumption are strongly connected, with correlations of 0.99, 0.98, and 0.97 across the relevant pairs. Trip scale is therefore a major operational driver.
+•	Average MPG is relatively stable, with an overall mean of 6.50 and monthly values concentrated between 6.47 and 6.53.
+•	Idle time has almost no linear correlation with distance or duration, so idle behavior should be analyzed using operational context rather than assumed to increase simply because a trip is longer.
+•	Indiana and California have the highest average detention among the ten states examined, suggesting locations that warrant facility-level investigation.
+•	Monthly trip volume is stable across the three-year period, indicating a relatively consistent workload.
+•	The top driver MPG values and lowest truck MPG values are separated by a relatively small range, so performance decisions should combine MPG with other KPIs.
+15. Business Recommendations
+•	Prioritize on-time delivery improvement by investigating the operational causes of the 44.33% late-event rate, including detention, route conditions, scheduling, and facility performance.
+•	Investigate high-detention locations, beginning with Indiana and California, at the facility and customer level to identify recurring bottlenecks.
+•	Use distance, duration, and fuel relationships to build baseline expectations for trip time and fuel consumption; unusually high deviations can then be flagged for investigation.
+•	Maintain regular MPG monitoring because the current fleet is stable, while investigating persistent low-MPG trucks alongside maintenance and route information.
+•	Do not use correlation as proof of causation. Combine EDA with predictive modeling and operational context before implementing policy changes.
+•	Develop future driver and truck scorecards that combine delivery reliability, fuel efficiency, idle time, safety, utilization, and maintenance indicators.
+16. Python Code Examples
+# Descriptive statistics
+numeric_columns = [
+    "actual_distance_miles",
+    "actual_duration_hours",
+    "fuel_gallons_used",
+    "average_mpg",
+    "idle_time_hours"
+]
+
+trips[numeric_columns].agg(
+    ["mean", "median", "std", "min", "max"]
+)
+
+# Correlation analysis
+correlation = trips[numeric_columns].corr()
+
+sns.heatmap(
+    correlation,
+    annot=True,
+    cmap="coolwarm",
+    fmt=".2f"
+)
+
+# Delivery percentage
+on_time_percentage = (
+    delivery["on_time_flag"]
+    .value_counts(normalize=True) * 100
+)
+
+# Monthly trip volume
+trips["month"] = trips["dispatch_date"].dt.to_period("M")
+monthly_trips = trips.groupby("month").size()
+
+# State detention analysis
+detention_by_state = (
+    delivery.groupby("location_state")["detention_minutes"]
+    .mean()
+    .sort_values(ascending=False)
+)
+17. Limitations
+The analysis is primarily descriptive and correlation-based. Correlation does not establish causation, and state-level detention averages do not identify individual facility root causes. The Trips table also contains only Completed statuses, limiting status-based comparisons. Future work should join additional tables and introduce features such as route attributes, customer information, maintenance records, safety incidents, and delivery-event timing. Predictive models should be evaluated on held-out data before being used for operational decisions.
+18. Future Scope
+•	Develop a classification model to predict late delivery events.
+•	Use route, customer, facility, and trip features to identify delay drivers.
+•	Apply clustering to segment trips, routes, trucks, or drivers by performance.
+•	Calculate route profitability by combining revenue and operating-cost information.
+•	Build a logistics KPI dashboard for management monitoring.
+•	Use optimization methods for vehicle, driver, and route allocation.
+19. Conclusion
+Week 3 transformed the cleaned logistics dataset into actionable exploratory findings through descriptive statistics, correlation analysis, geographic analysis, time trends, and fleet-level comparisons. The most important finding is the relatively low on-time delivery rate of 55.67%, which indicates a significant service-reliability opportunity. The analysis also shows extremely strong relationships between trip distance, duration, and fuel consumption, while MPG and idle time show little linear relationship with trip scale.
+The results provide a quantitative basis for the next stages of the project. Rather than treating individual observations in isolation, future analysis can combine delivery events, routes, customers, drivers, trucks, maintenance, and safety information to identify root causes and build predictive models. Overall, the Week 3 analysis demonstrates how visualization and statistical exploration can convert logistics records into evidence for operational decision-making.
+20. Appendix – Main Libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.cluster import KMeans
