@@ -1,0 +1,101 @@
+WEEK 4 – PREDICTIVE MODELING AND OPTIMIZATION IN LOGISTICS
+Data-Driven Logistics and Fleet Performance Optimization
+1. Introduction
+Week 4 extends the previous logistics analytics work into predictive modeling and optimization. The objective is to predict actual trip duration from operational characteristics and demonstrate how predictive insights can support logistics scheduling and fleet resource allocation.
+2. Problem Definition
+The selected problem is Trip Duration Prediction. The target variable is actual_duration_hours, a continuous numerical variable, so the task is treated as a regression problem. The selected inputs are actual_distance_miles, fuel_gallons_used, average_mpg, and idle_time_hours.
+Business question: Can historical trip characteristics be used to estimate how long a logistics trip will take?
+3. Dataset and Features
+Feature	Role	Meaning
+actual_distance_miles	Input	Distance traveled
+fuel_gallons_used	Input	Fuel consumed
+average_mpg	Input	Fuel efficiency
+idle_time_hours	Input	Time spent idling
+actual_duration_hours	Target	Actual trip duration
+The trips dataset contains 85,410 records. The feature selection was also informed by Week 3 findings, where distance and duration showed a 0.99 correlation and duration and fuel showed a 0.97 correlation.
+4. Data Preparation
+The relevant numerical columns were selected, the target was separated from the predictors, and the data was split into 80% training and 20% testing records using random_state=42.
+features = ["actual_distance_miles", "fuel_gallons_used", "average_mpg", "idle_time_hours"]
+target = "actual_duration_hours"
+X = trips[features]
+y = trips[target]
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+5. Model Selection
+Linear Regression was selected as a transparent baseline for approximately linear relationships. Random Forest Regression was selected as a nonlinear ensemble model that can capture interactions and nonlinear patterns.
+6. Model Training
+linear_model = LinearRegression()
+linear_model.fit(X_train, y_train)
+linear_predictions = linear_model.predict(X_test)
+
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
+rf_model.fit(X_train, y_train)
+rf_predictions = rf_model.predict(X_test)
+7. Evaluation Metrics
+MAE and RMSE measure prediction error, with lower values being better. R² measures how much variation in trip duration is explained by the model, with higher values being better.
+Model	MAE (hours)	RMSE (hours)	R²
+Linear Regression	1.6317	2.1631	0.9768
+Random Forest	1.6983	2.2937	0.9739
+8. Model Comparison and Best Model
+Linear Regression performed better on every reported metric. It achieved MAE 1.6317 hours, RMSE 2.1631 hours, and R² 0.9768. Random Forest achieved MAE 1.6983 hours, RMSE 2.2937 hours, and R² 0.9739. Therefore, Linear Regression is the preferred model for this experiment.
+ 
+9. Actual vs Predicted Analysis
+ 
+The Actual vs Predicted visualization provides a visual check of prediction quality. A close alignment between observed and predicted values indicates that the model captures the main variation in trip duration.
+10. Prediction Error Analysis
+The selected Linear Regression model has an average absolute error of 1.6317 hours on the test set. Its RMSE of 2.1631 hours indicates that larger errors receive additional penalty but remain relatively controlled.
+11. Feature Importance
+Random Forest feature importance shows that actual_distance_miles is the dominant feature in the selected feature set, with importance 0.969833. Fuel consumption, idle time, and MPG contribute 0.018463, 0.006869, and 0.004835 respectively.
+Feature	Importance
+actual_distance_miles	0.969833
+fuel_gallons_used	0.018463
+idle_time_hours	0.006869
+average_mpg	0.004835
+ 
+12. Example Prediction
+A demonstration trip with 1,500 miles of distance, 220 gallons of fuel, 6.5 MPG, and 7 hours of idle time produced a predicted trip duration of 25.73 hours using the Random Forest model.
+Predicted Trip Duration: 25.73 hours
+13. Optimization Strategy
+The optimization stage uses predictive insights to improve scheduling and fleet allocation. A practical objective is to reduce expected trip duration, fuel consumption, idle time, and delay-related costs while maintaining delivery requirements.
+A future formal optimization model could minimize transportation cost + fuel cost + delay penalty + maintenance cost subject to vehicle capacity, driver availability, route restrictions, fleet availability, and delivery-time constraints.
+14. Truck Efficiency Heuristic
+A simple decision-support heuristic was calculated as average MPG divided by average idle time. It is a ranking method, not a formal mathematical optimum.
+Truck	Trips	Avg MPG	Avg Idle	Distance	Score
+TRK00049	912	6.5175	6.8052	1,268,102	0.957736
+TRK00111	929	6.4877	6.8451	1,319,779	0.947788
+TRK00115	948	6.5220	6.8843	1,341,222	0.947368
+TRK00035	932	6.4980	6.8621	1,343,802	0.946930
+TRK00015	961	6.5037	6.8744	1,386,604	0.946070
+TRK00057	951	6.5435	6.9178	1,377,066	0.945897
+TRK00091	901	6.5102	6.8845	1,307,376	0.945642
+TRK00058	898	6.4742	6.8519	1,299,089	0.944877
+TRK00098	911	6.5291	6.9247	1,307,617	0.942870
+TRK00073	935	6.5031	6.8995	1,338,563	0.942552
+ 
+TRK00049 ranked first among the supplied ten records with an efficiency score of 0.957736, average MPG of 6.5175, and average idle time of 6.8052 hours.
+15. Business Recommendations
+•	Use the selected duration model to improve scheduling and estimate realistic trip durations.
+•	Provide additional scheduling buffer for trips predicted to require longer durations.
+•	Investigate high-idle operations and identify practical ways to reduce unnecessary idling.
+•	Use fleet-efficiency rankings as one input when considering suitable trucks for long-distance work.
+•	Combine prediction results with route, facility, maintenance, safety, capacity, and driver-availability information before making dispatch decisions.
+•	Develop a formal vehicle-routing or mixed-integer optimization model in a future phase.
+16. Limitations
+•	Some selected variables, such as fuel consumed and actual trip distance, may not be known before departure; therefore this is an analytical demonstration rather than a production pre-dispatch model.
+•	The current model predicts actual trip duration rather than directly predicting the on-time delivery flag.
+•	The truck efficiency score is a heuristic and does not guarantee an optimal assignment.
+•	Real-world deployment would require traffic, weather, route, delivery-window, capacity, driver, maintenance, and availability constraints.
+17. Future Scope
+•	Build a pre-dispatch duration or delay model using only information available before departure.
+•	Predict late-delivery probability using classification methods.
+•	Integrate route, customer, facility, driver, maintenance, and safety features.
+•	Apply cross-validation and hyperparameter tuning to additional models.
+•	Implement formal vehicle-routing optimization using OR-Tools, PuLP, or SciPy.
+•	Develop a dashboard for predicted duration, delay risk, fleet efficiency, and logistics KPIs.
+18. Conclusion
+Week 4 successfully applied predictive modeling to a logistics trip-duration problem. Linear Regression achieved the strongest performance with MAE 1.6317 hours, RMSE 2.1631 hours, and R² 0.9768, outperforming Random Forest on all three reported metrics.
+The feature analysis identified distance as the dominant signal in the selected feature set. The optimization demonstration showed how predictive results and fleet-efficiency rankings can support better scheduling and resource allocation. The next logical step is to develop a true pre-dispatch model and formal optimization framework using operational constraints.
+Appendix – Main Python Libraries and Workflow
+Pandas and NumPy were used for data handling; Matplotlib and Seaborn for visualization; and Scikit-learn for train/test splitting, regression, Random Forest modeling, and evaluation.
+Workflow: Data Loading → Feature Selection → Train/Test Split → Model Training → Evaluation → Model Comparison → Prediction Analysis → Feature Importance → Fleet Efficiency Heuristic → Optimization Recommendations → Business Decision Support
