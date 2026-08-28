@@ -119,18 +119,31 @@ Week 3 will focus on exploratory data analysis, relationships between logistics 
 logistics-data-analytics-project/
 │
 ├── data/
+│
 ├── notebooks/
-├── 01_database_exploration.ipynb
-└── 02_data_cleaning_preprocessing.ipynb
-
-reports/
-├── Week_1_Strategic_Planning_Report.docx
-└── Week_2_Data_Cleaning_and_Preprocessing_Report.docx
-
+│   ├── 01_database_exploration.ipynb
+│   ├── 02_data_cleaning_preprocessing.ipynb
+│   └── 03_advanced_eda_visualization.ipynb
+│
+├── reports/
+│   ├── week1_report.docx
+│   ├── week2_report.docx
+│   └── week3_report.docx
+│
 ├── src/
+│
 ├── visualizations/
+│   ├── trip_distance_distribution.png
+│   ├── trip_duration_distribution.png
+│   ├── fuel_efficiency_distribution.png
+│   ├── correlation_matrix.png
+│   ├── distance_vs_duration.png
+│   ├── distance_vs_fuel.png
+│   ├── detention_by_state.png
+│   └── monthly_trip_volume.png
+│
+├── .gitignore
 ├── README.md
-├── requirements.txt
-└── .gitignore
+└── requirements.txt
 
 
