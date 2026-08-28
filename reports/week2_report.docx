@@ -1,34 +1,152 @@
 WEEK 2 PROJECT REPORT
-
-Data Collection, Cleaning, and
-Preprocessing for Logistics Analysis
-
+Data Collection, Cleaning, and Preprocessing for Logistics Analysis
+Data-Driven Logistics and Fleet Performance Optimization
+Technical Internship Submission
+Week 2 – Data Preparation and Preprocessing
+ 
 1. Introduction
+Week 2 focuses on preparing the logistics dataset for reliable downstream analytics. Data cleaning is essential because inaccurate values, inconsistent data types, duplicate records, missing information, and extreme observations can produce misleading KPIs and unreliable predictive models. The objective is to establish a repeatable preprocessing pipeline that converts the raw logistics data into analysis-ready tables while preserving legitimate business information.
 2. Data Collection Simulation and Dataset Characteristics
+The project continues to use the relational logistics database introduced during Week 1. It contains 14 connected tables representing customers, drivers, trucks, trailers, facilities, routes, loads, trips, fuel purchases, maintenance records, delivery events, safety incidents, driver monthly metrics, and truck utilization metrics.
+Table	Rows	Columns
+customers	200	8
+drivers	150	12
+trucks	120	11
+trailers	180	9
+facilities	50	9
+routes	58	9
+loads	85,410	12
+trips	85,410	12
+fuel_purchases	196,442	11
+maintenance_records	2,920	12
+delivery_events	170,820	11
+safety_incidents	170	15
+driver_monthly_metrics	4,464	9
+truck_utilization_metrics	3,312	10
+The raw CSV files are analyzed locally in Python and kept separate from processed outputs so the original source data remains unchanged.
 3. Data Cleaning Methodology
+•	Missing values were examined and treated according to business meaning rather than applying one rule to every field.
+•	Exact duplicate rows were checked across the available tables.
+•	Numerical trip fields were validated for physically impossible values.
+•	Date and timestamp fields were converted to Pandas datetime types.
+•	The IQR method was used to identify statistical outliers.
+•	Selected numerical variables were standardized with StandardScaler for future scale-sensitive analysis.
 4. Missing-Value Analysis
+The Drivers table contained 124 missing values in termination_date. These values were retained rather than statistically imputed because a missing termination date can represent an active driver. Replacing the values with a mean, median, or artificial date would introduce incorrect business information.
+for name, df in datasets.items():
+    missing = df.isnull().sum()
+    missing = missing[missing > 0]
+    if len(missing) > 0:
+        print(name.upper())
+        print(missing)
 5. Duplicate Analysis
+Exact duplicate rows were checked across the datasets. The Week 1 quality assessment found no duplicate rows in the checked tables, so no duplicate-based deletion was required. This prevents legitimate records from being removed merely because some business fields are similar.
+for name, df in datasets.items():
+    print(name, "duplicates:", df.duplicated().sum())
 6. Data-Type and Date Preprocessing
+Date and timestamp fields were converted to datetime values. This enables chronological comparisons, duration calculations, time-based aggregation, and future seasonal analysis.
+trips = datasets["trips"].copy()
+delivery = datasets["delivery_events"].copy()
+
+trips["dispatch_date"] = pd.to_datetime(
+    trips["dispatch_date"], errors="coerce"
+)
+
+delivery["scheduled_datetime"] = pd.to_datetime(
+    delivery["scheduled_datetime"], errors="coerce"
+)
+
+delivery["actual_datetime"] = pd.to_datetime(
+    delivery["actual_datetime"], errors="coerce"
+)
 7. Invalid-Value Validation
+The Trips table was checked for negative distance, duration, fuel consumption, and idle time, as well as non-positive MPG. The actual validation produced zero invalid values for all five checks.
+Validation	Invalid Count
+Negative distance	0
+Negative duration	0
+Negative fuel	0
+Invalid MPG (≤ 0)	0
+Negative idle time	0
+print("Negative distance:", (trips["actual_distance_miles"] < 0).sum())
+print("Negative duration:", (trips["actual_duration_hours"] < 0).sum())
+print("Negative fuel:", (trips["fuel_gallons_used"] < 0).sum())
+print("Invalid MPG:", (trips["average_mpg"] <= 0).sum())
+print("Negative idle time:", (trips["idle_time_hours"] < 0).sum())
 8. Outlier Detection Using IQR
+Outliers were investigated using the Interquartile Range (IQR) method. For each variable, Q1 and Q3 were calculated and the acceptable range was defined as Q1 − 1.5×IQR to Q3 + 1.5×IQR. Observations outside that range were counted.
+def detect_outliers_iqr(df, column):
+    Q1 = df[column].quantile(0.25)
+    Q3 = df[column].quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - 1.5 * IQR
+    upper = Q3 + 1.5 * IQR
+    outliers = df[(df[column] < lower) | (df[column] > upper)]
+    return outliers, lower, upper
+Variable	Lower Bound	Upper Bound	Outliers
+actual_distance_miles	-1428.00	4292.00	0
+actual_duration_hours	-23.85	73.35	0
+fuel_gallons_used	-210.10	648.30	0
+average_mpg	4.50	8.50	0
+idle_time_hours	-3.00	17.00	0
+The IQR procedure identified zero statistical outliers in each selected trip variable. Therefore, no observations were removed or capped. This is appropriate because unusual logistics observations can be legitimate long-distance or high-duration trips.
 9. Outlier Visualization
+Boxplots were created for actual trip distance, fuel consumption, and idle time to visually inspect the distributions and support the numerical IQR results. The plots form part of the Week 2 notebook evidence.
 10. Numerical Normalization
+StandardScaler was applied to actual distance, actual duration, fuel consumed, average MPG, and idle time. Standardization places variables on a comparable scale and is particularly useful for future algorithms such as K-Means clustering.
+from sklearn.preprocessing import StandardScaler
+
+numeric_features = [
+    "actual_distance_miles",
+    "actual_duration_hours",
+    "fuel_gallons_used",
+    "average_mpg",
+    "idle_time_hours"
+]
+
+trips_clean = trips.copy()
+scaler = StandardScaler()
+
+trips_clean[
+    [col + "_scaled" for col in numeric_features]
+] = scaler.fit_transform(
+    trips_clean[numeric_features]
+)
+Normalization verification produced means of approximately 0.0 and standard deviations of 1.0 for all five scaled features, confirming that the transformation was successful.
 11. Final Preprocessing Results
+Processing Area	Actual Result	Decision
+Missing values	124 in drivers.termination_date	Retained as potentially meaningful active-driver state
+Duplicates	0 in quality assessment	No deletion required
+Invalid trip measurements	0 across five checks	No correction required
+IQR outliers	0 across five variables	No removal/capping required
+Date fields	Converted to datetime	Ready for temporal analysis
+Normalization	Mean ≈ 0; Std = 1	Scaled features created
 12. Saving Processed Data
+Processed copies were saved separately from raw data. This preserves reproducibility and prevents the original source files from being overwritten.
+os.makedirs("../data/processed", exist_ok=True)
+
+trips_clean.to_csv(
+    "../data/processed/trips_clean.csv",
+    index=False
+)
+
+delivery.to_csv(
+    "../data/processed/delivery_events_clean.csv",
+    index=False
+)
 13. Why Data Quality Matters
+Data quality directly affects logistics decision-making. Duplicate trips can overstate distance and fuel totals. Invalid measurements can distort fleet-efficiency KPIs. Incorrect date types can prevent accurate duration and seasonal analysis. Missing business fields can also cause incorrect classifications when their meaning is ignored. A transparent preprocessing pipeline creates a reliable foundation for predictive modeling, clustering, route analysis, and optimization.
 14. Reflection
+The Week 2 exercise demonstrates that cleaning is not simply deleting missing or extreme observations. Good preprocessing combines statistical methods with business context. The 124 absent termination dates were retained because they may represent active drivers, and no IQR outliers were removed because none were detected. This demonstrates that a high-quality dataset is one in which potential issues are systematically investigated and appropriate decisions are documented.
 15. Conclusion
-
-124 missing termination_date values
-0 negative distance
-0 negative duration
-0 negative fuel
-0 invalid MPG
-0 negative idle time
-
-IQR outliers:
-0 for all five tested variables
-
-StandardScaler:
-Mean ≈ 0
-Standard deviation = 1
+Week 2 established a reproducible data collection and preprocessing pipeline for the logistics analytics project. The data was assessed for missing values, duplicates, invalid measurements, data-type issues, and statistical outliers. The main missing-data issue was the 124 absent driver termination dates, which were retained using business interpretation. No invalid trip measurements or IQR outliers were identified in the five selected operational variables. Date fields were converted to datetime, and five numerical features were standardized successfully with means approximately equal to zero and standard deviations equal to one.
+The prepared data provides a reliable foundation for Week 3 exploratory analysis of delivery performance, distance, duration, fuel efficiency, idle time, detention, routes, drivers, and fleet assets.
+16. Python Libraries Used
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import StandardScaler
+17. References
+•	Project logistics database schema and CSV tables used for the analysis.
+•	scikit-learn documentation for StandardScaler and preprocessing methods.
+•	scikit-learn documentation for clustering and machine-learning methods planned for later project phases.

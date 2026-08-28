@@ -1,0 +1,573 @@
+WEEK 1 PROJECT REPORT
+Strategic Planning and Data Exploration in Logistics
+Data-Driven Logistics and Fleet Performance Optimization
+Prepared for Technical Internship Submission
+Week 1 – Strategic Planning and Data Exploration
+ 
+Table of Contents
+
+ 
+Strategic Planning and Data Exploration in Logistics
+Project Title
+Data-Driven Logistics and Fleet Performance Optimization
+Week 1 – Strategic Planning and Data Exploration
+
+1. Introduction
+Logistics operations depend on reliable deliveries, efficient vehicles, effective route planning, fuel management, and well-maintained assets. In a competitive environment, logistics companies need to improve service reliability while controlling operating costs and making better use of their fleet.
+Data analytics and data science can help logistics organizations make better operational decisions by identifying patterns in historical data and predicting future outcomes. Factors such as trip distance, trip duration, fuel consumption, idle time, detention, driver performance, route characteristics, maintenance activity, and safety incidents can influence logistics performance.
+This project proposes a data-driven approach to improve logistics operations by analyzing delivery performance, fleet efficiency, fuel usage, route performance, maintenance, and safety. The working dataset is a relational logistics database containing 14 connected tables covering customers, drivers, trucks, trailers, facilities, routes, loads, trips, fuel purchases, maintenance records, delivery events, safety incidents, driver monthly metrics, and truck utilization metrics.
+The overall objective is to use Python and data science techniques to understand logistics performance and develop analytical recommendations for improving delivery reliability, fleet efficiency, and resource allocation.
+
+2. Project Background and Scenario
+Consider a logistics company that operates a fleet of trucks and trailers, serves customers through multiple routes and facilities, and manages thousands of shipments and trips.
+The company currently faces the following challenges:
+•	Some customer deliveries arrive later than expected.
+•	Long delivery and detention times can reduce operational efficiency.
+•	Differences in fuel efficiency and idle time can increase transportation costs.
+•	Some routes or trips may perform less efficiently than others.
+•	Vehicle maintenance can create costs and downtime.
+•	Safety incidents can create operational and financial risks.
+•	Management needs data-driven information to allocate vehicles, drivers, and routes more efficiently.
+The proposed project will analyze historical logistics data to identify the major factors affecting delivery performance.
+The analysis will focus on three connected areas:
+1.	Delivery Performance Analysis
+2.	Fleet and Fuel Efficiency Analysis
+3.	Route and Operational Performance Analysis
+The project will investigate whether historical operational data can be used to identify delivery delays, inefficient fleet behavior, high-cost operational patterns, and other areas where logistics performance can be improved.
+
+3. Project Objectives
+The main objectives of this project are:
+Objective 1 – Analyze logistics performance
+Analyze historical logistics data to understand delivery performance, trip distance, trip duration, fuel consumption, idle time, detention, maintenance, safety, and other operational characteristics.
+Objective 2 – Identify factors affecting delivery delays
+Determine which operational factors, such as trip duration, detention, distance, fuel efficiency, idle time, route characteristics, and fleet attributes, are associated with delivery performance.
+Objective 3 – Predict delivery delays
+Develop a predictive model that estimates the probability or likelihood of a delivery delay using historical logistics information.
+Objective 4 – Analyze inventory requirements
+Analyze fleet utilization, fuel efficiency, maintenance activity, and asset performance to identify opportunities for better resource allocation.
+Objective 5 – Segment logistics operations
+Use clustering techniques to identify groups of trips, routes, trucks, or operational conditions with similar performance characteristics.
+Objective 6 – Support optimization
+Use optimization concepts to recommend better allocation of vehicles, drivers, and routes while considering operational cost and service requirements.
+
+4. Key Performance Indicators (KPIs)
+The following KPIs will be used to measure logistics performance. The first seven are directly supported by the Week 1 dataset exploration.
+4.1 On-Time Delivery Rate
+Formula:
+On-Time Delivery Rate =  
+(Number of deliveries completed on time / Total number of deliveries) × 100
+This KPI measures the percentage of deliveries completed within the expected delivery time.
+Goal: Increase the percentage of on-time deliveries.
+
+4.2 Average Detention Time
+Formula:
+Average Detention Time =  
+Total detention minutes / Number of delivery events
+This KPI measures the average time spent in detention during delivery events and helps identify facility-related operational delays.
+Week 1 result: 91.54 minutes.
+Goal: Reduce unnecessary detention time.
+
+4.3 Average Fuel Efficiency
+Formula:
+Average Fuel Efficiency =  
+Mean of trip-level average MPG
+This KPI measures how efficiently the fleet converts fuel into travel distance.
+Week 1 result: 6.50 MPG.
+Goal: Improve or maintain efficient fuel consumption.
+
+4.4 Average Idle Time
+Formula:
+Average Idle Time =  
+Total idle time / Number of trips
+This KPI measures the average amount of trip time spent idling and can indicate opportunities for operational efficiency improvements.
+Week 1 result: 7.01 hours.
+Goal: Reduce unnecessary idle time.
+
+4.5 Average Trip Duration
+Formula:
+Average Trip Duration =  
+Total actual trip duration / Number of trips
+This KPI provides a baseline for understanding the time required to complete trips.
+Week 1 result: 25.01 hours.
+Goal: Identify routes and operational conditions associated with unusually long trips.
+4.6 Total Distance and Fuel Consumption
+The dataset contains 85,410 trips covering approximately 122.16 million miles and using approximately 18.95 million gallons of fuel during the analyzed period. These measures provide a baseline for fleet scale and fuel usage.
+4.7 Future KPIs
+Later phases can calculate revenue per mile, maintenance cost per mile, truck utilization, safety incident rate, and driver performance using the related tables in the database.
+
+5. Data Research
+A relational logistics dataset is used as the primary source for this project. The database schema contains 14 related operational tables with primary and foreign-key relationships connecting customers, loads, routes, trips, drivers, trucks, trailers, fuel purchases, maintenance, delivery events, and safety incidents.
+The working dataset contains 85,410 loads and trips, 170,820 delivery events, 196,442 fuel purchase records, 2,920 maintenance records, 170 safety incidents, 4,464 driver-month records, and 3,312 truck-utilization records. This relational structure allows the project to examine logistics performance from several business perspectives rather than relying on a single flat table.
+For background research, the Amazon Last Mile Routing Research Challenge provides a relevant public example of logistics analytics and route optimization. Its dataset contains route-, stop-, and package-level features for 9,184 historical routes, demonstrating how machine learning and optimization can be combined for last-mile routing research. 
+Machine-learning libraries such as scikit-learn provide established methods for regression, classification, and clustering. Linear regression can be used for continuous targets, while K-Means can group observations into performance segments. These methods are suitable candidates for later phases of this project.
+These resources demonstrate that predictive analytics, clustering, and optimization are relevant techniques for logistics and supply chain decision-making.
+
+6. Proposed Dataset Variables
+The following variables are particularly useful for the proposed analysis:
+Variable	Purpose
+`trip_id`, `load_id`	Connect trips and shipments
+`driver_id`, `truck_id`, `trailer_id`	Analyze driver and asset performance
+`dispatch_date`	Analyze time-based patterns
+`actual_distance_miles`	Measure trip distance
+`actual_duration_hours`	Measure trip duration
+`fuel_gallons_used`	Measure fuel consumption
+`average_mpg`	Measure fuel efficiency
+`idle_time_hours`	Measure idle behavior
+`trip_status`	Analyze trip completion status
+`scheduled_datetime`, `actual_datetime`	Compare scheduled and actual events
+`detention_minutes`	Measure facility-related delay
+`on_time_flag`	Measure delivery reliability
+`location_city`, `location_state`	Analyze delivery locations
+Route and load attributes	Analyze route and shipment performance
+Maintenance attributes	Analyze maintenance cost and downtime
+Safety attributes	Analyze incidents and risk
+
+
+7. Data Science Methodologies
+Several data science techniques will be considered during the project.
+7.1 Exploratory Data Analysis (EDA)
+EDA will be performed to understand:
+•	Data distributions
+•	Missing values
+•	Outliers
+•	Correlations
+•	Delivery patterns
+•	Fleet and fuel patterns
+•	Route and trip patterns
+•	Relationships between distance, duration, fuel efficiency, idle time, detention, and delivery performance
+Python libraries such as Pandas, NumPy, Matplotlib, and Seaborn can be used.
+
+7.2 Regression
+Regression can be used to predict a continuous logistics variable such as actual trip duration or fuel consumption.
+For example:
+Input variables:
+•	Actual distance
+•	Fuel consumed
+•	Average MPG
+•	Idle time
+•	Route characteristics
+•	Driver or truck attributes
+Target:
+•	Actual trip duration
+A regression model can help determine which operational factors have the strongest relationship with delivery delays.
+Possible algorithms include:
+•	Linear Regression
+•	Decision Tree Regression
+•	Random Forest Regression
+•	Gradient Boosting Regression
+
+7.3 Classification
+Classification can be used when the target is categorical.
+For example, deliveries could be classified as:
+•	On Time
+•	Delayed
+or:
+•	Low Risk
+•	Moderate Risk
+•	High Risk
+Possible algorithms include:
+•	Logistic Regression
+•	Decision Tree
+•	Random Forest
+•	XGBoost
+The model could estimate the probability that a future shipment will be delayed.
+
+7.4 Clustering
+Clustering can identify groups of similar logistics operations without requiring predefined labels.
+For example, K-Means clustering could group trips or fleet assets based on:
+•	Actual distance
+•	Trip duration
+•	Fuel consumption
+•	Average MPG
+•	Idle time
+Possible clusters could represent:
+Cluster 1: Short, efficient trips
+Cluster 2: Long-distance trips
+Cluster 3: High-idle or high-fuel trips
+Cluster 4: Other operationally distinct segments
+This information could help management develop different strategies for different route categories.
+
+7.5 Optimization
+Optimization can be used after the analytical and predictive stages.
+The objective could be to minimize:
+Total Logistics Cost = Transportation Cost + Delay Cost + Fuel Cost + Maintenance Cost
+subject to constraints such as:
+•	Vehicle capacity
+•	Driver availability
+•	Route constraints
+•	Delivery deadlines
+•	Fleet availability
+•	Operational requirements
+A vehicle routing or linear/mixed-integer optimization approach could be considered.
+Research on logistics optimization demonstrates the use of optimization models for transportation and inventory allocation problems.
+
+8. End-to-End Strategic Roadmap
+The proposed project will follow the following analytical workflow:
+Data Collection → Data Understanding → Data Cleaning → Exploratory Data Analysis → Feature Engineering → KPI Analysis → Predictive Modeling → Clustering → Optimization → Evaluation → Business Recommendations
+
+Step 1 – Data Collection
+Obtain a publicly available logistics dataset.
+Potential sources include:
+•	Kaggle logistics datasets
+•	Amazon Last Mile Routing Research Challenge dataset
+•	Other open logistics and supply chain datasets
+The dataset should contain sufficient information about deliveries, routes, inventory, demand, costs, and operational conditions.
+
+Step 2 – Data Understanding
+First inspect:
+•	Number of rows
+•	Number of columns
+•	Data types
+•	Missing values
+•	Duplicate records
+•	Unique values
+•	Statistical summaries
+Example:
+import pandas as pd
+
+df = pd.read_csv("logistics_data.csv")
+
+print(df.shape)
+print(df.head())
+print(df.info())
+print(df.describe())
+print(df.isnull().sum())
+
+9. Data Cleaning
+The following preprocessing activities will be performed:
+Missing Values
+Identify missing values and determine whether they should be:
+•	Removed
+•	Replaced using mean/median
+•	Replaced using business rules
+Duplicate Records
+Duplicate observations will be identified and removed when appropriate.
+Outliers
+Extreme values will be investigated using:
+•	Box plots
+•	IQR method
+•	Z-score
+Data Types
+Dates and timestamps will be converted to appropriate datetime formats.
+Categorical Variables
+Categorical variables may be encoded using:
+•	One-hot encoding
+•	Label encoding
+Example:
+df["Timestamp"] = pd.to_datetime(df["Timestamp"])
+
+df = df.drop_duplicates()
+
+df["Traffic Congestion Level"] = pd.to_numeric(
+    df["Traffic Congestion Level"],
+    errors="coerce"
+)
+
+10. Exploratory Data Analysis
+EDA will be used to identify patterns in the logistics data.
+Examples of questions include:
+4.	What percentage of delivery events are completed on time?
+5.	Which facilities or locations have higher detention times?
+6.	Which routes have the longest or most variable trip durations?
+7.	Which trucks or drivers show lower fuel efficiency?
+8.	Is idle time associated with trip distance or duration?
+9.	Which operational factors are associated with late deliveries?
+10.	Which assets or routes may require further investigation for efficiency or maintenance?
+Example Python code:
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.histplot(trips["actual_distance_miles"], kde=True)
+
+plt.title("Distribution of Actual Trip Distance")
+plt.xlabel("Distance (miles)")
+plt.ylabel("Number of Trips")
+plt.show()
+Correlation analysis:
+numeric_columns = df.select_dtypes(include="number")
+
+correlation = numeric_columns.corr()
+
+sns.heatmap(correlation, annot=True)
+
+plt.title("Logistics Variable Correlation Matrix")
+plt.show()
+
+11. KPI Calculation
+The major KPIs will be calculated using Python.
+Example:
+delivery = datasets["delivery_events"]
+
+on_time_rate = delivery["on_time_flag"].mean() * 100
+
+print("On-Time Delivery Rate:", on_time_rate)
+Average delivery deviation:
+average_detention = delivery["detention_minutes"].mean()
+
+print("Average Detention Time:",
+      average_detention)
+Shipping cost:
+average_mpg = trips["average_mpg"].mean()
+
+print("Average Fuel Efficiency:",
+      average_mpg)
+These metrics will establish a baseline for evaluating logistics performance.
+
+12. Predictive Modeling
+After data preparation and EDA, predictive models will be developed.
+For example, a later phase can predict delivery delay or trip duration using operational variables available after the required tables are joined.
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error, r2_score
+
+features = [
+    "actual_distance_miles",
+    "fuel_gallons_used",
+    "average_mpg",
+    "idle_time_hours"
+]
+
+X = trips[features]
+y = trips["actual_duration_hours"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+
+model = RandomForestRegressor(
+    n_estimators=100,
+    random_state=42
+)
+
+model.fit(X_train, y_train)
+
+predictions = model.predict(X_test)
+
+mae = mean_absolute_error(y_test, predictions)
+r2 = r2_score(y_test, predictions)
+
+print("MAE:", mae)
+print("R2 Score:", r2)
+The model performance will be evaluated using appropriate metrics.
+For regression:
+•	MAE
+•	RMSE
+•	R²
+For classification:
+•	Accuracy
+•	Precision
+•	Recall
+•	F1-score
+•	ROC-AUC
+
+13. Clustering Analysis
+K-Means clustering can be used to identify similar route or operational groups.
+Example:
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+features = [
+    "actual_distance_miles",
+    "actual_duration_hours",
+    "fuel_gallons_used",
+    "average_mpg",
+    "idle_time_hours"
+]
+
+X = trips[features].dropna()
+
+scaler = StandardScaler()
+
+X_scaled = scaler.fit_transform(X)
+
+kmeans = KMeans(
+    n_clusters=3,
+    random_state=42,
+    n_init=10
+)
+
+clusters = kmeans.fit_predict(X_scaled)
+
+X["Cluster"] = clusters
+
+print(X.groupby("Cluster").mean())
+The resulting clusters can then be interpreted from a business perspective.
+For example, clusters may reveal short efficient trips, long high-fuel trips, or trips with unusually high idle time. The labels would be assigned after examining the cluster statistics rather than assumed in advance.
+
+14. Optimization Strategy
+Once the major factors affecting logistics performance have been identified, optimization can be considered.
+A simplified objective function could be:
+Minimize:
+Transportation Cost + Delay Penalty + Fuel Cost + Maintenance Cost
+Subject to:
+•	Vehicle capacity constraints
+•	Vehicle and driver availability
+•	Route and trip constraints
+•	Delivery time constraints
+•	Fleet capacity and operational constraints
+A future implementation could use Python optimization libraries such as:
+•	SciPy
+•	PuLP
+•	OR-Tools
+The optimization stage would transform analytical insights into operational decisions.
+For example, the company could determine:
+•	Which vehicle and driver should be assigned to a route?
+•	Which routes should receive priority?
+•	How can fuel, delay, and maintenance costs be reduced while maintaining delivery targets?
+
+15. Model Evaluation
+The analytical approach will be evaluated from both technical and business perspectives.
+Technical Evaluation
+The predictive models will be evaluated using appropriate performance metrics.
+For regression:
+•	Mean Absolute Error
+•	Root Mean Squared Error
+•	R² Score
+For classification:
+•	Accuracy
+•	Precision
+•	Recall
+•	F1-score
+For clustering:
+•	Silhouette Score
+•	Cluster interpretation
+Business Evaluation
+The final strategy will be evaluated based on potential improvements in:
+•	On-time delivery rate
+•	Average detention time
+•	Fuel efficiency
+•	Idle time
+•	Trip duration
+•	Fleet utilization
+•	Maintenance and safety performance
+
+16. Expected Outcomes
+The project is expected to produce the following outcomes:
+1. Identification of delay factors
+The analysis should identify the operational variables most strongly associated with delivery delays.
+2. Delivery delay prediction
+A machine learning model should provide an estimate of delivery-time deviation or delay probability.
+3. Route segmentation
+Clustering should identify different categories of routes based on operational characteristics.
+4. Fleet and fuel insights
+The analysis should identify fuel-efficiency differences, idle-time patterns, and underperforming fleet segments.
+5. Cost reduction opportunities
+The analysis should identify routes, trips, or assets associated with high operational costs or poor efficiency.
+6. Data-driven decision support
+The final analysis should provide management with evidence-based recommendations for improving logistics operations.
+
+17. Potential Business Impact
+The proposed analytical approach can support logistics decision-making in several ways.
+Improved delivery reliability: Predicting delay-prone deliveries can allow managers to take preventive action.
+Lower transportation costs: Route and cost analysis can identify inefficient transportation patterns.
+Better fleet allocation: Driver, truck, route, and utilization analysis can support better resource allocation.
+Improved resource utilization: Predictive and optimization models can support better allocation of vehicles and warehouse resources.
+Improved customer satisfaction: Higher on-time delivery and fulfillment rates can improve the customer experience.
+
+18. Project Limitations
+The project may have several limitations.
+First, the working dataset may not perfectly represent the operations of every real logistics company.
+Second, historical data may contain missing values or measurement issues. For example, 124 driver records have no termination_date; these values should not automatically be treated as errors because a missing termination date may indicate an active driver.
+Third, predictive models identify statistical patterns but cannot guarantee future outcomes.
+Fourth, real-world route optimization requires additional constraints such as driver schedules, vehicle capacity, road restrictions, live traffic, and delivery windows.
+Therefore, model results should be validated using actual business data before being deployed in a production logistics environment.
+
+19. Future Scope
+The project can be extended in several ways.
+Real-Time Logistics Monitoring
+GPS and IoT data could be integrated to monitor vehicles and shipments in real time.
+Demand Forecasting
+Time-series models could be used to predict future customer demand.
+Dynamic Route Optimization
+Routes could be dynamically updated based on real-time traffic and weather conditions.
+IoT-Based Monitoring
+Temperature and other sensor information could be used for sensitive or perishable shipments.
+Advanced AI Models
+Future versions could investigate XGBoost, neural networks, deep learning, and reinforcement learning.
+Real-Time Decision Support Dashboard
+A dashboard could be developed using Power BI, Tableau, or Python-based visualization tools to allow managers to monitor KPIs.
+
+20. Proposed Project Timeline
+Phase	Activities	Expected Output
+Week 1	Scenario definition, research, KPI identification	Strategic planning report
+Week 2	Data collection and cleaning	Clean dataset
+Week 3	Exploratory data analysis	EDA findings and visualizations
+Week 4	KPI analysis and feature engineering	Performance metrics
+Week 5	Predictive modeling	Prediction model
+Week 6	Clustering analysis	Operational segments
+Week 7	Optimization	Recommended resource allocation
+Week 8	Evaluation and reporting	Final analysis
+Week 9	Dashboard/presentation	Decision-support dashboard
+
+
+21. Conclusion
+This project proposes a data-driven approach to improving logistics efficiency by combining exploratory data analysis, KPI measurement, predictive modeling, clustering, and optimization.
+The first stage focuses on understanding the relational logistics database and establishing measurable performance indicators. Week 1 analysis of 85,410 trips and 170,820 delivery events produced an on-time delivery rate of 55.67%, average detention of 91.54 minutes, average fuel efficiency of 6.50 MPG, average idle time of 7.01 hours, and average trip duration of 25.01 hours. These baseline measures provide a starting point for future improvement analysis.
+Python will be used throughout the analytical process for data cleaning, visualization, statistical analysis, machine learning, and optimization. Regression and classification models can later be used to predict delivery or trip performance, while clustering can identify groups of similar routes, trips, or fleet assets. Optimization techniques can then be used to translate these insights into better resource allocation and routing decisions.
+The expected outcome is a structured analytical framework that helps logistics managers understand the causes of delays, improve fleet efficiency, reduce unnecessary operating costs, and increase delivery reliability.
+Ultimately, the project demonstrates how data science can transform historical logistics data into actionable insights and support more efficient, cost-effective, and data-driven logistics decision-making.
+
+22. References
+11.	Project logistics database schema and CSV tables used for the Week 1 analysis.
+12.	Amazon Web Services Open Data Registry. *2021 Amazon Last Mile Routing Research Challenge Dataset*. Public dataset containing route-, stop-, and package-level data from 9,184 historical routes.
+13.	scikit-learn documentation. *Linear Models*. Reference for regression methods used in the proposed predictive-analysis stage.
+14.	scikit-learn documentation. *K-Means Clustering*. Reference for the proposed clustering stage.
+15.	Amazon Last Mile Routing Research Challenge documentation. Reference for the use of machine learning and optimization in logistics route planning.
+
+Appendix A – Overall Analytical Flow
+                LOGISTICS DATA
+                      |
+                      v
+              Data Collection
+                      |
+                      v
+               Data Cleaning
+                      |
+                      v
+           Exploratory Data Analysis
+                      |
+                      v
+             KPI Calculation
+                      |
+          +-----------+-----------+
+          |                       |
+          v                       v
+   Predictive Modeling       Clustering
+          |                       |
+          v                       v
+ Delivery Delay Prediction   Route Segmentation
+          |                       |
+          +-----------+-----------+
+                      |
+                      v
+                 Optimization
+                      |
+                      v
+             Business Insights
+                      |
+                      v
+            Decision Support
+Appendix B – Main Python Libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.cluster import KMeans
+from sklearn.metrics import (
+    mean_absolute_error,
+    r2_score,
+    silhouette_score
+)
+These libraries provide the basic foundation for data manipulation, visualization, machine learning, clustering, and evaluation in the proposed logistics analytics project.
+
+Reference Links
+•	Amazon Web Services Open Data Registry – 2021 Amazon Last Mile Routing Research Challenge Dataset: https://registry.opendata.aws/amazon-last-mile-challenges/
+•	scikit-learn – Linear Models: https://scikit-learn.org/stable/modules/linear_model.html
+•	scikit-learn – Clustering: https://scikit-learn.org/stable/modules/clustering.html
