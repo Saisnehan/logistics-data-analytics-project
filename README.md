@@ -90,21 +90,6 @@ The initial analysis focuses on:
 10. Optimization
 11. Business Recommendations
 
-### Repository Structure
-
-```text
-logistics-data-analytics-project/
-│
-├── data/
-├── notebooks/
-│   └── 01_database_exploration.ipynb
-├── reports/
-├── src/
-├── visualizations/
-├── README.md
-├── requirements.txt
-└── .gitignore
-
 
 ## Project Status
 
@@ -127,3 +112,25 @@ Week 2 included:
 ### Next Phase
 
 Week 3 will focus on exploratory data analysis, relationships between logistics variables, and deeper KPI analysis.
+
+### Repository Structure
+
+```text
+logistics-data-analytics-project/
+│
+├── data/
+├── notebooks/
+├── 01_database_exploration.ipynb
+└── 02_data_cleaning_preprocessing.ipynb
+
+reports/
+├── Week_1_Strategic_Planning_Report.docx
+└── Week_2_Data_Cleaning_and_Preprocessing_Report.docx
+
+├── src/
+├── visualizations/
+├── README.md
+├── requirements.txt
+└── .gitignore
+
+
