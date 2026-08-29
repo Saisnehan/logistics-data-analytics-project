@@ -68,7 +68,7 @@ Logistics company facing operational challenges:
 - **MAE**: 1.63 hours
 - **RMSE**: 2.16 hours
 - **R² Score**: 0.9768 (97.68% variance explained)
-- **Key Feature**: Distance (96.98% importance)gjgkknkmlm
+- **Key Feature**: Distance (96.98% importance)
 
 ---
 
