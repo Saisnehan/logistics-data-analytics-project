@@ -32,7 +32,7 @@ Logistics company facing operational challenges:
 ### 4-Week Structured Analysis
 
 | Week | Focus | Outcome |
-|------|-------|---------|
+|------|-------|---------|   
 | **Week 1** | Strategic planning & data exploration | Established baseline KPIs |
 | **Week 2** | Data cleaning & preprocessing | 100% data validation passed |
 | **Week 3** | EDA & advanced analysis | Identified performance patterns |
