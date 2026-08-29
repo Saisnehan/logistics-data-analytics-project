@@ -113,7 +113,7 @@ logistics-data-analytics/
 │   ├── 03_advanced_eda_visualization.ipynb
 │   └── 04_predictive_modeling_optimization.ipynb
 ├── reports/                       # Weekly analysis reports
-├── visualizations/                # Charts & graphs
+├── visualizations/                # Charts & graphs   
 ├── requirements.txt
 └── README.md
 ```
