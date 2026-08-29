@@ -194,7 +194,7 @@ cd logistics-data-analytics
 pip install -r requirements.txt
 
 # Run notebooks in sequence
-jupyter notebook notebooks/
+jupyter notebook notebooks/  
 ```
     
 ---
