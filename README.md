@@ -7,7 +7,7 @@
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-yellow)
 
----
+---  
 
 ## 📋 Quick Overview
 
