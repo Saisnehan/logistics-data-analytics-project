@@ -27,7 +27,7 @@ Logistics company facing operational challenges:
 
 ---
 
-## 💡 Solution Approach
+## 💡 Solution Approach   
 
 ### 4-Week Structured Analysis
 
