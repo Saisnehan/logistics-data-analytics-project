@@ -17,7 +17,7 @@ A comprehensive data analytics project analyzing **14 interconnected logistics t
                             
 ## ❗ Problem Statementkhnlnlnnnnnnnnnnnnnnnnnnnnnn
   
-Logistics company facing operational challenges: 
+Logistics company facing operational challenges: nkndksdnnnnnnnnnnnnnnnnnnnnnnnnnnn
 - **55.67%** on-time delivery rate (concerning)
 - **91.54 minutes** average detention time (inefficient)  
 - Unclear fleet efficiency and fuel consumption patterns
