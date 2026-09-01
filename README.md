@@ -42,7 +42,7 @@ Logistics company facing operational challenges:
 ## 📊 Key Deliverables
 
 ### Week 1: Baseline KPIs
-- On-Time Delivery Rate: **55.67%**
+- On-Time Delivery Rate: **55.67%**  
 - Average Detention Time: **91.54 min**
 - Average Fuel Efficiency: **6.50 MPG**
 - Total Distance: **122.16M miles**
