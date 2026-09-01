@@ -34,7 +34,7 @@ Logistics company facing operational challenges:
 |------|-------|---------|
 | **Week 1** | Strategic planning & data exploration | Established baseline KPIs |
 | **Week 2** | Data cleaning & preprocessing | 100% data validation passed |
-| **Week 3** | EDA & advanced analysis | Identified performance patterns |
+| **Week 3** | EDA & advanced analysis | Identified performance patterns |  
 | **Week 4** | Predictive modeling & optimization | Built trip-duration predictor |
 
 ---
