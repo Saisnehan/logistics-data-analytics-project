@@ -57,7 +57,7 @@ Logistics company facing operational challenges:
 
 ### Week 3: Business Insights
 📍 **Geographic Analysis** - TX leads with 17,542 delivery events  
-🕐 **Detention Hotspots** - IN, CA, CO average 100+ minutes  
+🕐 **Detention Hotspots** - IN, CA, CO average 100+ minutes     
 📈 **Correlation Found** - Distance↔Duration (0.99), Distance↔Fuel (0.98)  
 👤 **Top Performers** - Driver DRV00105 & Truck TRK00049 ranked by efficiency  
 📅 **Monthly Stability** - Fleet MPG consistent (6.47-6.53 range)
