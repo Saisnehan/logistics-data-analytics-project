@@ -167,7 +167,7 @@ Random Forest:
 - 🤖 Advanced ML (XGBoost, LSTM)
 - 🛣️ Route optimization algorithms
 - 📍 Vehicle Routing Problem (VRP) solver
-- 🔮 Demand forecasting
+- 🔮 Demand forecasting   
 - ⚠️ Maintenance/safety prediction
 - 📊 Power BI/Tableau dashboards
 - 📡 Real-time GPS/IoT integration
