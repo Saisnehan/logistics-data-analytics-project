@@ -73,7 +73,7 @@ Logistics company facing operational challenges:
 
 ## 📈 Dataset Overview
 
-| Table | Records | Purpose |
+| Table | Records | Purpose |  
 |-------|---------|---------|
 | Trips | 85,410 | Trip performance data |
 | Delivery Events | 170,820 | Pickup/delivery records |
