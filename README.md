@@ -87,7 +87,7 @@ Logistics company facing operational challenges:
   
 ## 🛠️ Technologies & Tools
 
-**Data Analysis**
+**Data Analysis**  
 - Python | Pandas | NumPy
 
 **Visualization**
