@@ -103,7 +103,7 @@ Logistics company facing operational challenges:
 
 ## 📂 Repository Structure
 
-```
+```   
 logistics-data-analytics/
 ├── data/                          # 14 CSV files
 ├── notebooks/
