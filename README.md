@@ -11,7 +11,7 @@
 
 ## 📋 Quick Overview
 
-A comprehensive data analytics project analyzing **14 interconnected logistics tables** (85,410+ trips) to understand fleet performance, optimize operations, and predict trip duration using machine learning.
+A comprehensive data analytics project analyzing **14 interconnected logistics tables** (85,410+ trips) to understand fleet performance, optimize operations, and predict trip duration using machine learning.  
 
 ---
                             
