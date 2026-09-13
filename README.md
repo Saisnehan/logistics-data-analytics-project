@@ -66,7 +66,7 @@ Logistics company facing operational challenges:
 **Best Model**: Linear Regression
 - **MAE**: 1.63 hours
 - **RMSE**: 2.16 hours
-- **R² Score**: 0.9768 (97.68% variance explained)
+- **R² Score**: 0.9768 (97.68% variance explained)   
 - **Key Feature**: Distance (96.98% importance)
 
 ---
