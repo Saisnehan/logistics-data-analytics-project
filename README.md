@@ -204,7 +204,7 @@ jupyter notebook notebooks/
 |-------|--------|
 | Week 1 - Strategic Planning | ✅ Complete |
 | Week 2 - Data Cleaning | ✅ Complete |
-| Week 3 - EDA & Analysis | ✅ Complete |
+| Week 3 - EDA & Analysis | ✅ Complete |  
 | Week 4 - Predictive Modeling | ✅ Complete |
 | Week 5 - Advanced Analytics | 🔄 Planned |
 
