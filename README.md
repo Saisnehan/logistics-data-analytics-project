@@ -47,7 +47,7 @@ Logistics company facing operational challenges:
 - Average Fuel Efficiency: **6.50 MPG**
 - Total Distance: **122.16M miles**
 - Total Fuel Used: **18.95M gallons**
-
+  
 ### Week 2: Data Quality  
 ✅ Zero negative values (distance, duration, fuel)  
 ✅ Zero invalid MPG records  
