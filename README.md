@@ -235,7 +235,7 @@ Weekly detailed reports included in `/reports/`:
 
 Found insights or improvements?
 1. Fork the repository
-2. Create feature branch
+2. Create feature branch   
 3. Commit changes
 4. Push and open Pull Request
 
