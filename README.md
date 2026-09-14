@@ -130,7 +130,7 @@ logistics-data-analytics/
 ### Data-Driven Actions
 - ✅ Use predictive trip-duration for better scheduling
 - ✅ Add buffers for long-distance predictions
-- ✅ Investigate facility delays (detention hotspots)
+- ✅ Investigate facility delays (detention hotspots)  
 - ✅ Reduce idle time (avg 7.01 hours per trip)
 - ✅ Monitor underperforming trucks (TRK00072: 6.45 MPG)  
 
