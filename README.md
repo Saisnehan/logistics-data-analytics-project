@@ -169,7 +169,7 @@ Random Forest:
 - 📍 Vehicle Routing Problem (VRP) solver   
 - 🔮 Demand forecasting   
 - ⚠️ Maintenance/safety prediction
-- 📊 Power BI/Tableau dashboards
+- 📊 Power BI/Tableau dashboards  
 - 📡 Real-time GPS/IoT integration
 
 ---
