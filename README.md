@@ -22,7 +22,7 @@ Logistics company facing operational challenges:
 - **91.54 minutes** average detention time (inefficient)   
 - Unclear fleet efficiency and fuel consumption patterns      
 - Lack of data-driven resource allocation strategies        
-**Goal**: Leverage data analytics to identify operational bottlenecks and optimize fleet performance.
+**Goal**: Leverage data analytics to identify operational bottlenecks and optimize fleet performance.  
 
 ---
 
