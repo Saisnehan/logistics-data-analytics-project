@@ -116,7 +116,7 @@ logistics-data-analytics/
 ├── requirements.txt
 └── README.md
 ```
-
+  
 ---
 
 ## 🎯 Key Findings & Recommendations
@@ -124,7 +124,7 @@ logistics-data-analytics/
 ### Operational Insights
 1. **Improve On-Time Delivery** - 44.33% late deliveries indicate scheduling issues
 2. **Reduce Detention Time** - Focus on high-detention states (IN, CA, CO)
-3. **Fleet Optimization** - TRK00049 efficiency model for best performers
+3. **Fleet Optimization** - TRK00049 efficiency model for best performers  
 4. **Driver Performance** - Top drivers maintain 6.56 MPG consistency
 
 ### Data-Driven Actions
