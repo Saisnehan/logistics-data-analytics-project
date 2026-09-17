@@ -133,7 +133,7 @@ logistics-data-analytics/
 - ✅ Investigate facility delays (detention hotspots)  
 - ✅ Reduce idle time (avg 7.01 hours per trip)
 - ✅ Monitor underperforming trucks (TRK00072: 6.45 MPG)  
-
+    
 ---
 
 ## 📊 Model Performance
