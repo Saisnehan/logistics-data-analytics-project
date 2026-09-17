@@ -196,7 +196,7 @@ pip install -r requirements.txt
 jupyter notebook notebooks/  
 ```
     
----
+---    
 
 ## 📈 Project Status
 
