@@ -251,7 +251,7 @@ MIT License - see LICENSE file for details
 
 **K Sai Snehan**
   
-Data Analytics | Machine Learning | Python | Logistics Optimization
+Data Analytics | Machine Learning | Python | Logistics Optimization   
 
 - 📧 Email: saisnehank@gmail.com
 - 🔗 LinkedIn: [linkedin.com/in/k-saisnehan](https://linkedin.com/in/k-saisnehan)   
