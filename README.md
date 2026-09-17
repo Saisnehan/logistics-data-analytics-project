@@ -94,7 +94,7 @@ Logistics company facing operational challenges:
 - Matplotlib | Seaborn
    
 **Machine Learning**  
-- Scikit-learn (Linear Regression, Random Forest)
+- Scikit-learn (Linear Regression, Random Forest)  
 
 **Development**
 - Jupyter Notebook | Git | GitHub | VS Code
