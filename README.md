@@ -109,7 +109,7 @@ logistics-data-analytics/
 ├── notebooks/
 │   ├── 01_database_exploration.ipynb
 │   ├── 02_data_cleaning_preprocessing.ipynb
-│   ├── 03_advanced_eda_visualization.ipynb
+│   ├── 03_advanced_eda_visualization.ipynb   
 │   └── 04_predictive_modeling_optimization.ipynb
 ├── reports/                       # Weekly analysis reports
 ├── visualizations/                # Charts & graphs   
