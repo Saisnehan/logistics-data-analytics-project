@@ -202,7 +202,7 @@ jupyter notebook notebooks/
 
 | Phase | Status |
 |-------|--------|
-| Week 1 - Strategic Planning | ✅ Complete |
+| Week 1 - Strategic Planning | ✅ Complete |   
 | Week 2 - Data Cleaning | ✅ Complete |
 | Week 3 - EDA & Analysis | ✅ Complete |  
 | Week 4 - Predictive Modeling | ✅ Complete |
