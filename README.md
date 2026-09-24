@@ -76,7 +76,7 @@ Logistics company facing operational challenges:
 | Table | Records | Purpose |  
 |-------|---------|---------|
 | Trips | 85,410 | Trip performance data |
-| Delivery Events | 170,820 | Pickup/delivery records |
+| Delivery Events | 170,820 | Pickup/delivery records |    
 | Fuel Purchases | 196,442 | Fuel consumption |     
 | Maintenance | 2,920 | Vehicle maintenance |   
 | Safety Incidents | 170 | Safety records |
