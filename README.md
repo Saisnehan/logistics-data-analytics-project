@@ -188,7 +188,7 @@ Jupyter Notebook
 # Clone repository
 git clone https://github.com/Saisnehan/logistics-data-analytics.git
 cd logistics-data-analytics                      
-
+   
 # Install dependencies
 pip install -r requirements.txt
 
