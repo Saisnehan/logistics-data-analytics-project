@@ -170,7 +170,7 @@ Random Forest:
 - 🔮 Demand forecasting       
 - ⚠️ Maintenance/safety prediction
 - 📊 Power BI/Tableau dashboards  
-- 📡 Real-time GPS/IoT integration
+- 📡 Real-time GPS/IoT integration   
 
 ---
 
