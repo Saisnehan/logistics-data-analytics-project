@@ -142,7 +142,7 @@ logistics-data-analytics/
 ```
 Linear Regression vs Random Forest
 
-Linear Regression:
+Linear Regression:   
 ✓ MAE:  1.6317 hours (better)
 ✓ RMSE: 2.1631 hours (better)
 ✓ R²:   0.9768 (better)
