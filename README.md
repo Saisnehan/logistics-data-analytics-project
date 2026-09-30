@@ -182,7 +182,7 @@ Python 3.8+
 Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
 Jupyter Notebook
 ```   
-
+   
 ### Setup
 ```bash
 # Clone repository
