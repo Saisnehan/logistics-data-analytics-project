@@ -255,7 +255,7 @@ Data Analytics | Machine Learning | Python | Logistics Optimization
 
 - 📧 Email: saisnehank@gmail.com
 - 🔗 LinkedIn: [linkedin.com/in/k-saisnehan](https://linkedin.com/in/k-saisnehan)   
-- 🐙 GitHub: [github.com/Saisnehan](https://github.com/Saisnehan)
+- 🐙 GitHub: [github.com/Saisnehan](https://github.com/Saisnehan)   
     
 ---
 
