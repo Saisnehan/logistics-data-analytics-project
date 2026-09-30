@@ -157,7 +157,7 @@ Random Forest:
 ### Feature Importance
 - **Distance**: 96.98% (dominant predictor)
 - **Fuel Used**: 1.85%
-- **Idle Time**: 0.69%
+- **Idle Time**: 0.69%   
 - **Average MPG**: 0.48%
 
 ---
