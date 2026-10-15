@@ -212,12 +212,12 @@ jupyter notebook notebooks/
 
 ## 🎓 Skills Demonstrated
 
-✅ **Data Analysis** - Pandas, exploratory analysis, statistics  
+✅ **Data Analysis** - Pandas, exploratory analysis, statistics
 ✅ **Data Cleaning** - Missing values, outlier detection, normalization  
-✅ **Visualization** - Matplotlib, Seaborn, insights communication  
-✅ **Machine Learning** - Regression models, feature importance, evaluation  
-✅ **Business Acumen** - KPI identification, recommendations, optimization  
-✅ **Project Management** - Structured 4-week delivery  
+✅ **Visualization** - Matplotlib, Seaborn, insights communication 
+✅ **Machine Learning** - Regression models, feature importance, evaluation 
+✅ **Business Acumen** - KPI identification, recommendations, optimization 
+✅ **Project Management** - Structured 4-week delivery
 
 ---
 
