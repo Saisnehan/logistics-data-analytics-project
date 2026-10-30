@@ -234,11 +234,11 @@ Weekly detailed reports included in `/reports/`:
 ## 🤝 Contributing
 
 Found insights or improvements?
-1. Fork the repository   
-2. Create feature branch   
-3. Commit changes  
-4. Push and open Pull Request
-
+1. Fork the repository     
+2. Create feature branch     
+3. Commit changes     
+4. Push and open Pull Request  
+  
 ---
 
 ## 📄 License
