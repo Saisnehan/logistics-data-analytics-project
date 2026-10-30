@@ -2,8 +2,8 @@
 
 > **Python-based Analytics Project | Data Exploration | Predictive Modeling | Business Insights**
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue)    
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)  
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-yellow)
        
@@ -18,24 +18,24 @@ A comprehensive data analytics project analyzing **14 interconnected logistics t
 ## ❗ Problem Statement
   
 Logistics company facing operational challenges:
-- **55.67%** on-time delivery rate (concerning)       
+- **55.67%** on-time delivery rate (concerning)
 - **91.54 minutes** average detention time (inefficient)
-- Unclear fleet efficiency and fuel consumption patterns      
-- Lack of data-driven resource allocation strategies      
+- Unclear fleet efficiency and fuel consumption patterns    
+- Lack of data-driven resource allocation strategies  
 **Goal**: Leverage data analytics to identify operational bottlenecks and optimize fleet performance.
 
 ---
 
-## 💡 Solution Approach   
+## 💡 Solution Approach
 
-### 4-Week Structured Analysis   
+### 4-Week Structured Analysis
 
-| Week | Focus | Outcome |      
+| Week | Focus | Outcome | 
 |------|-------|---------|    
-| **Week 1** | Strategic planning & data exploration | Established baseline KPIs |  
+| **Week 1** | Strategic planning & data exploration | Established baseline KPIs |
 | **Week 2** | Data cleaning & preprocessing | 100% data validation passed |
-| **Week 3** | EDA & advanced analysis | Identified performance patterns |        
-| **Week 4** | Predictive modeling & optimization | Built trip-duration predictor |   
+| **Week 3** | EDA & advanced analysis | Identified performance patterns |
+| **Week 4** | Predictive modeling & optimization | Built trip-duration predictor |
 
 ---
 
