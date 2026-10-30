@@ -1,4 +1,4 @@
-# 🚛 Data-Driven Logistics & Fleet Performance Optimization
+ # 🚛 Data-Driven Logistics & Fleet Performance Optimization
 
 > **Python-based Analytics Project | Data Exploration | Predictive Modeling | Business Insights**
 
@@ -34,7 +34,7 @@ Logistics company facing operational challenges:
 |------|-------|---------|    
 | **Week 1** | Strategic planning & data exploration | Established baseline KPIs |  
 | **Week 2** | Data cleaning & preprocessing | 100% data validation passed |
-| **Week 3** | EDA & advanced analysis | Identified performance patterns |     
+| **Week 3** | EDA & advanced analysis | Identified performance patterns |        
 | **Week 4** | Predictive modeling & optimization | Built trip-duration predictor |   
 
 ---
@@ -42,12 +42,12 @@ Logistics company facing operational challenges:
 ## 📊 Key Deliverables
 
 ### Week 1: Baseline KPIs
-- On-Time Delivery Rate: **55.67%**  
-- Average Detention Time: **91.54 min**
-- Average Fuel Efficiency: **6.50 MPG**
-- Total Distance: **122.16M miles**
+- On-Time Delivery Rate: **55.67%**    
+- Average Detention Time: **91.54 min**   
+- Average Fuel Efficiency: **6.50 MPG**  
+- Total Distance: **122.16M miles**  
 - Total Fuel Used: **18.95M gallons**
-  
+     
 ### Week 2: Data Quality  
 ✅ Zero negative values (distance, duration, fuel)  
 ✅ Zero invalid MPG records  
