@@ -2,14 +2,14 @@
 
 > **Python-based Analytics Project | Data Exploration | Predictive Modeling | Business Insights**
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)
+![Python](https://img.shields.io/badge/Python-3.8+-blue)  
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)  
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-yellow)
-   
+       
 ---                             
 
-## 📋 Quick Overview
+## 📋 Quick Overview  
 
 A comprehensive data analytics project analyzing **14 interconnected logistics tables** (85,410+ trips) to understand fleet performance, optimize operations, and predict trip duration using machine learning.  
 
