@@ -2,7 +2,7 @@
 
 > **Python-based Analytics Project | Data Exploration | Predictive Modeling | Business Insights**
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue)  
+![Python](https://img.shields.io/badge/Python-3.8+-blue)    
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green)  
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-yellow)
@@ -28,10 +28,10 @@ Logistics company facing operational challenges:
 
 ## 💡 Solution Approach   
 
-### 4-Week Structured Analysis
+### 4-Week Structured Analysis   
 
-| Week | Focus | Outcome |    
-|------|-------|---------|
+| Week | Focus | Outcome |      
+|------|-------|---------|    
 | **Week 1** | Strategic planning & data exploration | Established baseline KPIs |  
 | **Week 2** | Data cleaning & preprocessing | 100% data validation passed |
 | **Week 3** | EDA & advanced analysis | Identified performance patterns |     
